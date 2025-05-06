@@ -1,0 +1,129 @@
+.teams{
+    background-image: url(assets/bg14.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    padding: 6rem;
+}
+
+.team-card-cont{
+    /* margin: 8rem; */
+    /* padding: 5rem; */
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius:4rem ;
+}
+
+.head-cont {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6rem 3rem;
+    padding: 5rem;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  .head-card {
+    background: #f8f9fa;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    width: 300px;
+    color: #fff;
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .head-card:hover {
+    background: #e3e3e3;
+    color: #fff;
+    transform: translateY(-10px);
+  }
+  
+  .head-card img:first-of-type {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .head-card h3 {
+    margin-top: 60px; /* space below the avatar */
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .head-card h4 {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .head-card p {
+    color: #999;
+    font-size: 0.85rem;
+    padding: 0 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .head-card img:not(:first-of-type) {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .head-card img:not(:first-of-type):hover {
+    background-color: #bebebe;
+  }
+  
+
+
+  .team-switch-button {
+    background: #f0f4f8; /* light theme */
+    font-family: "Quicksand", sans-serif;
+    border: 2px solid #ccc;
+    color: #333;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .team-switch-button:hover {
+    background-color: #e2e8f0; /* hover effect */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .team-switch-button:active {
+    background-color: #4f46e5;
+    color: white;
+    border-color: #4f46e5;
+  }
+
+  .btns-switch{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  

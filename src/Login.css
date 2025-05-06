@@ -1,0 +1,123 @@
+.login{
+    background-image: url(./assets/bg5.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    padding: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box{
+    /* padding: 4rem; */
+    width: 75vw;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    display: flex;
+}
+
+.login form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 38rem;
+    margin: auto;
+    padding: 20px;
+}
+
+.login form input {
+    padding: 1rem;
+    background-color: #e6f0f8;
+    width: 18vw;
+    margin: 1rem;
+    color: #2c3e50;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 3rem;
+    border: 1px solid #ccc;
+    outline: none;
+    font-weight: 600;
+}
+
+.s-in{
+    padding: 1rem 3rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #7fdbff;
+    color: #1f2d3d;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.s-in:hover{
+    background-color: #1f2d3d;
+    color: #7fdbff
+}
+
+.s-up {
+    padding: 0.8rem 2rem;
+    color: #1f2d3d;
+    margin: 0.8rem;
+    border-radius: 2rem;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #7fdbff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.s-up:hover{
+    background-color: #1f2d3d;
+    color: #7fdbff
+}
+
+.sign-up{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    margin: auto;
+    padding: 20px;
+}
+
+
+.login h1{
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+}
+
+.login h2{
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.5rem;
+}
+
+.login-side{
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-side img{
+    width: 22vw;
+    animation: logoRotate 10s linear infinite;
+}
+
+@keyframes logoRotate {
+    0%   { transform: rotate3d(0, 1, 0, 0deg); }
+    100% { transform: rotate3d(0, 1, 0, 360deg); }
+}
+
+.divider {
+    width: 1.5px;
+    /* height: 70vh;  */
+    background-color: #868686;
+    margin: 0 2rem;
+    opacity: 0.5;
+    border-radius: 1px;
+  }

@@ -1,0 +1,133 @@
+.profile {
+    background-image: url(./assets/bg8.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    /* padding: 6rem; */
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.profile-box{
+    margin: 2rem;
+    background-color: rgba(255, 255, 255, 0.60);
+    border-radius: 2rem;
+}
+
+.profile-innbox {
+    display: flex;
+}
+
+.profile-left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 2rem;
+    border-radius: 1rem;
+}
+
+.profile-left img {
+    height: 20rem;
+}
+
+.my-info{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* width: 100%; */
+    justify-content: space-evenly;
+    margin: 1rem 3rem;
+}
+
+.prof-line2{
+    display: flex;
+    gap: 2rem;
+}
+
+.my-info p{
+    font-size: 1.25rem;
+    color: rgb(67, 67, 67);
+}
+
+.my-info h2{
+    font-size: 1.25rem;
+    color: rgb(67, 67, 67);
+    text-decoration: underline;
+}
+
+.profile-left h1{
+    text-align: left;
+}
+
+.prof-line1{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    /* gap: 2rem; */
+}
+
+.date-time {
+    font-size: 0.8rem;
+    color: rgb(148, 148, 148);
+    text-decoration: underline;
+}
+
+.profile-left a{
+    text-decoration: none;
+    margin-bottom: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgb(48, 69, 131);
+    color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.profile-left button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.profile-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+    margin-left: 0%;
+    gap: 2rem;
+}
+
+
+  .prof-r-t {
+    background-color: white;
+    padding: 1.75rem 4rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+  }
+  
+  .prof-r-t h3 {
+    margin: 1rem 0rem;
+    font-size: 1.6rem;
+    color: #1e1e1e;
+  }
+  
+  .prof-r-t ul {
+    padding-left: 20px;
+  }
+  
+  .prof-r-t li {
+    margin: 5px 0;
+  }
+
+
+  

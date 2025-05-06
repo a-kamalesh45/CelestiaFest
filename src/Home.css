@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+}
+
+.hero-cont{
+    display: flex;
+}
+
+.hero-img img {
+    height: 20rem;
+    width: auto;
+    animation: hero-img-rotate 7s linear infinite;
+}
+
+@keyframes hero-img-rotate {
+    0%   { transform: rotate3d(0, 1, 0, 0deg); }
+    100% { transform: rotate3d(0, 1, 0, 360deg); }
+  }
+  
+  
+
+.hero-text {
+    font-family: 'Audiowide', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+    background: linear-gradient(90deg, #ffffff, #a0a0a0, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); */
+    margin-top: 1rem;
+}
+
+.hero-text h1{
+    font-size: 3rem;
+
+}
+
+.hero-text h2{
+    font-size: 2rem;
+}
+
+.fest-name{
+    margin: 0 0.2rem;
+    font-size: 4rem;
+    font-family: "Oxanium", sans-serif;
+    color: white;
+    color: white;
+}
