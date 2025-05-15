@@ -1,0 +1,288 @@
+.gallery-card {
+    background-color: #0d0d15;
+    color: #ffffff;
+    display: flex;
+    border-radius: 20px;
+    margin: 2.5rem 0;
+    box-shadow: 3px 3px  #ffffffc7;
+    transition: transform 0.3s ease;
+    position: relative; /* Needed for ::before absolute */
+}
+
+.gallery-card:hover {
+    transform: scale(1.015);
+}
+
+/* animated edge-glow (optional but slick!) */
+.gallery-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.gallery-card:hover::before {
+    opacity: 0.8;
+}
+
+/* ==== left collage image =============================================== */
+/* Image Section */
+.gallery-left img {
+    height: 34vh;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Content Section */
+.gallery-left {
+    margin: 1rem;
+}
+
+.gallery-right {
+    width: 30vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    color: #ddeeff;
+}
+
+.gallery-title {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #00cfff;
+    letter-spacing: 1px;
+    margin: 0;
+    text-shadow: 0 0 6px rgba(0, 217, 255, 0.4);
+}
+
+.gallery-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #b8ccff;
+    margin: 0;
+}
+
+/* ==== astro button ====================================================== */
+
+/* Changed id to gallery-space-btn */
+button#gallery-space-btn {
+    background: linear-gradient(80deg, #00cfff, #007aff);
+    box-shadow: 0 0 8px #00cfff88;
+    width: 9rem;
+    height: 2.75rem;
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    outline: 0;
+    border-radius: 11px;
+    background: #03001e;
+    background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+    cursor: pointer;
+}
+
+button#gallery-space-btn span {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Changed btn-container to gallery-btn-container */
+.gallery-btn-container {
+    width: 10rem;
+    height: 1.8rem;
+    position: relative;
+    overflow: visible;
+}
+
+.gallery-btn-container::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: -1;
+    background: linear-gradient(80deg, #ffcbf2, #ec38bc, #7303c0, #03001e);
+    filter: blur(20px);
+    opacity: 0;
+}
+
+.gallery-btn-container:hover {
+    transform: scale(1.1);
+    transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.gallery-btn-container:hover::after {
+    transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+    opacity: 1;
+}
+
+.gallery-btn-container:active {
+    transform: scale(1);
+}
+
+.gallery-btn-container:active::after {
+    opacity: 0;
+}
+
+/* Changed div.star to div.gallery-star */
+button#gallery-space-btn div.gallery-star {
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    border-radius: 50%;
+    animation: blink 2s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+}
+
+button#gallery-space-btn div.shooting-star {
+    width: 80px;
+    height: 1px;
+    position: absolute;
+    background: linear-gradient(80deg, #ffffffff, #ffffff00);
+    border-radius: 50%;
+    transform: rotate(-40deg);
+    opacity: 0;
+}
+
+button#gallery-space-btn div.shooting-star-1 {
+    animation: fallingStar1 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+}
+
+button#gallery-space-btn div.shooting-star-2 {
+    animation: fallingStar2 2s 10s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+}
+
+button#gallery-space-btn div.shooting-star-3 {
+    animation: fallingStar3 8s 20s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+}
+
+button#gallery-space-btn div.shooting-star-4 {
+    animation: fallingStar4 4s 6s cubic-bezier(0.15, 0.83, 0.66, 1) infinite;
+}
+
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 10px 0 white;
+    }
+
+    50% {
+        box-shadow: 0 0 10px 2px white;
+    }
+
+    100% {
+        box-shadow: 0 0 10px 0 white;
+    }
+}
+
+@keyframes fallingStar1 {
+    0% {
+        top: -10px;
+        left: 220px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -20px;
+        opacity: 1;
+    }
+}
+
+@keyframes fallingStar2 {
+    0% {
+        top: -10px;
+        left: 150px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -90px;
+        opacity: 1;
+    }
+}
+
+@keyframes fallingStar3 {
+    0% {
+        top: -10px;
+        left: 80px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -160px;
+        opacity: 1;
+    }
+}
+
+@keyframes fallingStar4 {
+    0% {
+        top: -10px;
+        left: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 200px;
+        left: -240px;
+        opacity: 1;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes shootingStar {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(-55em) translateY(0);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateX(-70em) translateY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+    }
+}
+
+@keyframes glowing-stars {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ==== responsive stack on small screens ================================ */
+
+@media (max-width: 768px) {
+    .gallery-card {
+        flex-direction: column;
+    }
+
+    .gallery-left,
+    .gallery-right {
+        flex: none;
+    }
+}

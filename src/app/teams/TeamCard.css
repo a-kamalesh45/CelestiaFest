@@ -1,0 +1,95 @@
+.teams-teams-heading {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #34ddff;
+}
+
+.teams-card {
+  width: 38vh;
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  margin: 2rem;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px #ccc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teams-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 20px 3px rgba(0, 255, 255, 0.4), 0 0 40px 6px rgba(0, 153, 255, 0.2);
+}
+
+.teams-card:hover .teams-frame {
+  animation: spin 9.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: scale(1.79) rotate(0deg);
+  }
+  to {
+    transform: scale(1.79) rotate(360deg);
+  }
+}
+
+.teams-imageWrapper {
+  position: absolute;
+  top: 22.5%;
+  width: 110px;
+  height: 110px;
+}
+
+.teams-profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.teams-frame {
+  z-index: 2;
+  transform: scale(1.77); /* Enlarges the frame */
+}
+
+.teams-info {
+  margin-top: 50%;
+  padding: 0 16px;
+}
+
+.teams-info h2 {
+  font-size: 1.2rem;
+  margin: 8px 0 4px;
+}
+
+.teams-info p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.teams-socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.teams-socials img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.teams-socials a:hover img {
+  transform: scale(1.1);
+}

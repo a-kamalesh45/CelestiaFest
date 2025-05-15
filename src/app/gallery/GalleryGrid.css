@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+.gallery-wrapper {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  color: #00a3ff;
+}
+
+.gallery-description {
+  color: #00a3ff;
+  font-family: "Rajdhani", sans-serif;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+.gallery-grid-section {
+  column-count: 3;
+  column-gap: 16px;
+}
+
+.gallery-image-wrapper {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  width: 100%;
+  display: inline-block; /* important for masonry */
+}
+
+.gallery-image {
+  border: #00a3ff 4px solid;
+  outline: grey 4px solid;
+  width: 33vw;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid-section:hover .gallery-image {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+.gallery-image-wrapper:hover .gallery-image {
+  filter: none !important;
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+@media (max-width: 1000px) {
+  .gallery-grid-section{
+    column-count: 2;
+  }
+}
