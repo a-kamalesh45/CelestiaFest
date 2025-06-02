@@ -2,7 +2,6 @@
 const nextConfig = {
   images: {
     domains: ['nssc.in'],
-    output: "export",
   },
 };
 

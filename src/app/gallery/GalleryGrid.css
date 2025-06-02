@@ -7,8 +7,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 90vw;
-  margin: 0 auto;
+  max-width: 97vw;
+  margin: 10rem auto;
 }
 
 .gallery-title {
