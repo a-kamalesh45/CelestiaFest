@@ -67,7 +67,7 @@ export default function GalleryPage() {
     return (
         <div className="gallery-page">
             <StarCanvas />
-            {/* <Navbar /> */}
+            <Navbar />
 
             <div className="gallery-hero">
                 <p>A Journey Through Images.</p>
