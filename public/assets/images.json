@@ -1,0 +1,21 @@
+[
+  {"src": "/assets/gallery/cards/1.jpg", "group": "blue", "text": "STAC"},
+  {"src": "/assets/gallery/cards/12.jpg", "group": "blue"},
+  {"src": "/assets/gallery/cards/2.jpg", "group": "white", "text": "EVENT"},
+  {"src": "/assets/gallery/cards/11.jpg", "group": "blue"},
+  {"src": "/assets/gallery/cards/11.jpg", "group": "blue"},
+  {"src": "/assets/gallery/cards/21.jpg", "group": "white"},
+  {"src": "/assets/gallery/cards/3.jpg", "group": "violet", "text": "ARENA"},
+  {"src": "/assets/gallery/cards/22.jpg", "group": "white"},
+  {"src": "/assets/gallery/cards/31.jpg", "group": "violet"},
+  {"src": "/assets/gallery/cards/32.jpg", "group": "violet"},
+  {"src": "/assets/gallery/cards/5.jpg", "group": "green", "text": "EXHIBITIONS"},
+  {"src": "/assets/gallery/cards/41.jpg", "group": "green"},
+  {"src": "/assets/gallery/cards/42.jpg", "group": "green"},
+  {"src": "/assets/gallery/cards/51.jpg", "group": "orange"},
+  {"src": "/assets/gallery/cards/61.jpg", "group": "orange"},
+  {"src": "/assets/gallery/cards/52.jpg", "group": "pink"},
+  {"src": "/assets/gallery/cards/4.jpg", "group": "orange", "text": "GUEST LECTURES"},
+  {"src": "/assets/gallery/cards/62.jpg", "group": "pink"},
+  {"src": "/assets/gallery/cards/6.jpg", "group": "pink", "text": "AWARDS"}
+]

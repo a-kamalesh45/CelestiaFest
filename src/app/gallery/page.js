@@ -1,118 +1,160 @@
-"use client"
-import React, { useState } from "react";
-import "./GalleryCard.css";
-import "./Gallery.css";
-// import "./GalleryCarousel.css"
-import GalleryCard from "./GalleryCard";
+'use client';
+import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
+import './Gall.css';
 import Navbar from '../Navbar/Navbar';
-import { gallerySections } from "./data";
-import GalleryCarousel from "./GalleryCarousel";
 import StarCanvas from "../StarCanvas";
-import GalleryGrid from "./GalleryGrid";
+import GalleryCarousel from "./GalleryCarousel";
+import { gallerySections } from "./data"; // make sure this file exports your sections array
 
+export default function GalleryPage() {
+    const [images, setImages] = useState([]);
+    const imgContainerRef = useRef(null);
+    const borderContainerRef = useRef(null);
 
+    // Carousel states
+    const [isCarouselOpen, setIsCarouselOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentGroupImages, setCurrentGroupImages] = useState([]);
 
-const Gallery = () => {
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    // mapping border colors → section title in gallerySections
+    const borderToSection = {
+        blue: "STAC",
+        white: "Events",
+        violet: "Arena",
+        green: "Exhibitions",
+        orange: "Guest Lectures",
+        pink: "Awards"
+    };
 
+    useEffect(() => {
+        fetch('/assets/images.json')
+            .then((res) => res.json())
+            .then((data) => {
+                const updated = Array.from({ length: 19 }, (_, i) => ({
+                    src: data[i]?.src || '/assets/gallery/arena/1.jpg',
+                    group: data[i]?.group || 'cyan',
+                    text: data[i]?.text || null
+                }));
+                setImages(updated);
+            });
+    }, []);
 
-  const handleViewMore = (title) => {
-    setSelectedSection(title);
-  };
+    // Match heights after images load
+    useEffect(() => {
+        function matchHeights() {
+            if (imgContainerRef.current && borderContainerRef.current) {
+                borderContainerRef.current.style.height = imgContainerRef.current.offsetHeight + 'px';
+            }
+        }
 
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index);
-    setIsCarouselOpen(true);
-  };
+        matchHeights();
+        window.addEventListener('resize', matchHeights);
+        return () => window.removeEventListener('resize', matchHeights);
+    }, [images]);
 
-  const handleCloseCarousel = () => {
-    setIsCarouselOpen(false);
-  };
+    // Handle clicking a border group
+    const handleBorderClick = (group) => {
+        const sectionTitle = borderToSection[group];
+        const section = gallerySections.find(s => s.title === sectionTitle);
+        if (section) {
+            setCurrentGroupImages(section.gallery);
+            setCurrentImageIndex(0);
+            setIsCarouselOpen(true);
+        }
+    };
 
-  const handleNext = () => {
-    const images = gallerySections.find(s => s.title === selectedSection)?.gallery || [];
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
-  };
+    return (
+        <div className="gallery-page">
+            <StarCanvas />
+            {/* <Navbar /> */}
 
-  const handlePrev = () => {
-    const images = gallerySections.find(s => s.title === selectedSection)?.gallery || [];
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+            <div className="gallery-hero">
+                <p>A Journey Through Images.</p>
+            </div>
 
-  const selectedImages = gallerySections.find(s => s.title === selectedSection)?.gallery || [];
+            <div className="gallery-wrapper">
+                <div className='gallery-img-container' ref={imgContainerRef}>
+                    {images.map((img, i) => (
+                        <div
+                            key={i}
+                            className={`img-box item-${i + 1} ${img.text ? 'has-text' : ''}`}
+                            data-group={img.group}
+                        >
+                            {img.text && (
+                                <div
+                                    className="img-text-overlay"
+                                    style={{ fontFamily: img.font || 'inherit' }}
+                                >
+                                    {img.text}
+                                </div>
+                            )}
+                            <Image
+                                src={img.src}
+                                alt={`Image ${i + 1}`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (min-width: 769px) 18vw"
+                                priority={i < 10}
+                            />
+                        </div>
+                    ))}
+                </div>
 
-  return (
-    <div className="gallery-page">
-      <StarCanvas />
-      <Navbar />
+                {/* Borders */}
+                <div className="gallery-border-container" ref={borderContainerRef}>
+                    <div
+                        className="group-border"
+                        data-group="blue"
+                        style={{ gridColumn: '1 / span 3', gridRow: '1 / span 2' }}
+                        onClick={() => handleBorderClick('blue')}
+                    ></div>
+                    <div
+                        className="group-border"
+                        data-group="white"
+                        style={{ gridColumn: '4 / span 2', gridRow: '1 / span 3' }}
+                        onClick={() => handleBorderClick('white')}
+                    ></div>
+                    <div
+                        className="group-border"
+                        data-group="violet"
+                        style={{ gridColumn: '1 / span 3', gridRow: '3 / span 3' }}
+                        onClick={() => handleBorderClick('violet')}
+                    ></div>
+                    <div
+                        className="group-border"
+                        data-group="green"
+                        style={{ gridColumn: '4 / span 2', gridRow: '4 / span 2' }}
+                        onClick={() => handleBorderClick('green')}
+                    ></div>
+                    <div
+                        className="group-border"
+                        data-group="orange"
+                        style={{ gridColumn: '1 / span 2', gridRow: '6 / span 3' }}
+                        onClick={() => handleBorderClick('orange')}
+                    ></div>
+                    <div
+                        className="group-border"
+                        data-group="pink"
+                        style={{ gridColumn: '3 / span 3', gridRow: '6 / span 3' }}
+                        onClick={() => handleBorderClick('pink')}
+                    ></div>
+                </div>
+            </div>
 
-      {!selectedSection ? (
-        <div className="gallery-wrapper">
-          <div className="gallery-container">
-            {gallerySections.map((section, index) => (
-              <GalleryCard
-                key={index}
-                title={section.title}
-                image={section.image}
-                description={section.description}
-                onViewMore={handleViewMore}
-              />
-            ))}
-          </div>
+            {/* Carousel */}
+            {isCarouselOpen && (
+                <GalleryCarousel
+                    images={currentGroupImages}
+                    currentIndex={currentImageIndex}
+                    onClose={() => setIsCarouselOpen(false)}
+                    onNext={() =>
+                        setCurrentImageIndex((prev) => (prev + 1) % currentGroupImages.length)
+                    }
+                    onPrev={() =>
+                        setCurrentImageIndex((prev) => (prev - 1 + currentGroupImages.length) % currentGroupImages.length)
+                    }
+                />
+            )}
         </div>
-      ) : (
-        <div>
-          {/* Go Back Button */}
-          <div
-  onClick={() => setSelectedSection(null)}
-  className="group relative w-40 h-12 rounded-2xl cursor-pointer overflow-hidden"
->
-  {/* Animated background */}
-  <div className="absolute inset-0 bg-blue-400 w-10 group-hover:w-full transition-all duration-500 rounded-2xl z-0"></div>
-
-  {/* Foreground content */}
-  <div className="relative z-10 flex items-center justify-center h-full px-4 text-black font-semibold">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="mr-2"
-      viewBox="0 0 1024 1024"
-      height="20"
-      width="20"
-    >
-      <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" fill="black" />
-      <path
-        d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
-        fill="black"
-      />
-    </svg>
-    Go Back
-  </div>
-</div>
-
-
-
-          {/* Gallery Grid with clickable images */}
-          <GalleryGrid
-            sectionName={selectedSection}
-            onImageClick={handleImageClick}
-          />
-
-          {/* Carousel for full-screen image viewer */}
-          {isCarouselOpen && (
-            <GalleryCarousel
-              images={selectedImages}
-              currentIndex={currentImageIndex}
-              onClose={handleCloseCarousel}
-              onPrev={handlePrev}
-              onNext={handleNext}
-            />
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Gallery;
+    );
+}
